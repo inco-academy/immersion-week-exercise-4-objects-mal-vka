@@ -5,19 +5,19 @@ test("Remove Censored (1)", () => {
     "s*it": "m*rde",
     "sweet jesus": "doux jesus",
     "f***": "",
-    omg: "w*sh",
+    "omg": "w*sh",
   };
-  rmCensored(swearWords);
-  expect(swearWords).toBe({ "sweet jesus": "doux jesus" });
+
+  expect(rmCensored(swearWords)).toStrictEqual({ "sweet jesus": "doux jesus" });
 });
 
 test("Remove Censored (2)", () => {
   const veggies = {
-    potato: "starch",
+    "potato": "starch",
     "spin*ch": "green",
-    collard: "green",
-    tomato: "fr*it",
+    "collard": "green",
+    "tomato": "fr*it",
   };
-  rmCensored(veggies);
-  expect(veggies).toBe({ potato: "starch", collard: "green" });
+
+  expect(rmCensored(veggies)).toStrictEqual({ "potato": "starch", "collard": "green" });
 });
